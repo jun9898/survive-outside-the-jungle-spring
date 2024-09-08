@@ -12,6 +12,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RegistrationDto {
+	private String guildId;
 	private String mon;
 	private String tue;
 	private String wed;
