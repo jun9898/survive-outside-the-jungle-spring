@@ -31,7 +31,7 @@ public class AlgorithmController {
 
 	@PostMapping("/algorithm-registration")
 	public String algorithmRegistration(@RequestBody RegistrationDto registrationDto) {
-		algorithmService.algorithmRegistration(registrationDto);
+		algorithmService.saveWeeklyAlgorithms(registrationDto);
 		return "It has been set up successfully.";
 	}
 

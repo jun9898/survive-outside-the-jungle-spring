@@ -1,16 +1,22 @@
 package study.surviveoutsidethejunglespring.algorithm.entity;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import study.surviveoutsidethejunglespring.algorithm.dto.RegistrationDto;
+import lombok.Setter;
+import study.surviveoutsidethejunglespring.guild.entity.Guild;
 
 @Entity
 @Builder
@@ -20,32 +26,17 @@ import study.surviveoutsidethejunglespring.algorithm.dto.RegistrationDto;
 public class Algorithm {
 
 	@Id
+	@Column(name = "algorithm_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@Column(unique = true)
-	private String guildId;
+	private LocalDateTime registrationAt;
+	private String algorithmType;
 
-	private String forumId;
-	private String mon;
-	private String tue;
-	private String wed;
-	private String thu;
-	private String fri;
-	private String sat;
-	private String sun;
+	@Setter
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "guild_id")
+	private Guild guild;
 
-	public void updateForumId(String forumId) {
-		this.forumId = forumId;
-	}
 
-	public void updateRegistration(RegistrationDto registrationDto) {
-		this.mon = registrationDto.getMon();
-		this.tue = registrationDto.getTue();
-		this.wed = registrationDto.getWed();
-		this.thu = registrationDto.getThu();
-		this.fri = registrationDto.getFri();
-		this.sat = registrationDto.getSat();
-		this.sun = registrationDto.getSun();
-	}
 }
