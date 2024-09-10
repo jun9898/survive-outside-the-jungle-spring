@@ -15,10 +15,12 @@ import study.surviveoutsidethejunglespring.guild.entity.Guild;
 public class GuildSetDto {
 
 	private Long guildId;
+	private String guildName;
 
 	public static Guild toEntity(GuildSetDto guildSetDto) {
 		return Guild.builder()
 			.guildInfoId(guildSetDto.getGuildId())
+			.guildName(guildSetDto.getGuildName())
 			.build();
 	}
 }

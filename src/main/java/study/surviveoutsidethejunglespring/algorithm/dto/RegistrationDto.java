@@ -17,7 +17,7 @@ import study.surviveoutsidethejunglespring.guild.entity.Guild;
 @NoArgsConstructor
 public class RegistrationDto {
 
-	private String guildId;
+	private Long guildInfoId;
 	private String mon;
 	private String tue;
 	private String wed;

@@ -12,10 +12,12 @@ import jakarta.persistence.OneToMany;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import study.surviveoutsidethejunglespring.algorithm.entity.Algorithm;
 
+@Getter
 @Entity
 @Builder
 @AllArgsConstructor
@@ -28,6 +30,7 @@ public class Guild {
 	private Long id;
 
 	private Long guildInfoId;
+	private String guildName;
 
 	@OneToMany(mappedBy = "guild")
 	@Builder.Default

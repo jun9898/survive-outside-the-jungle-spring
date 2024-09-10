@@ -1,4 +1,3 @@
-# ?? H2 DB? ?? AWS RDS? ??? ??
 spring:
   h2:
     console:
@@ -12,5 +11,5 @@ spring:
       maximum-pool-size: 20
   jpa:
     hibernate:
-      ddl-auto: create
+#      ddl-auto: create
 

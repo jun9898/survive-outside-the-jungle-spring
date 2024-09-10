@@ -16,6 +16,7 @@ public class GuildService {
 
 	@Transactional
 	public void setGuild(GuildSetDto guildSetDto) {
-		guildRepository.save(GuildSetDto.toEntity(guildSetDto));
+		guildRepository.findByGuildInfoId(guildSetDto.getGuildId())
+			.orElseGet(() -> guildRepository.save(GuildSetDto.toEntity(guildSetDto)));
 	}
 }
