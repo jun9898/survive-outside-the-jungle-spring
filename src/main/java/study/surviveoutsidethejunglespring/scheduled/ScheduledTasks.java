@@ -28,8 +28,8 @@ public class ScheduledTasks {
 	private final RestTemplate restTemplate;
 	private static final String DISCORD_ALGORITHM_URL = "http://localhost:8081/today-algorithm";
 
-	// @Scheduled(cron = "0 0 8 * * ?")  // 매일 아침 8시에 실행
-	@Scheduled(cron = "*/10 * * * * ?")
+	@Scheduled(cron = "0 0 8 * * ?")  // 매일 아침 8시에 실행
+	// @Scheduled(cron = "*/30 * * * * ?")
 	public void sendDailyData() {
 		log.info("Sending daily data to Discord...");
 		List<Guild> guilds = guildRepository.findAll();  // 모든 Guild 조회

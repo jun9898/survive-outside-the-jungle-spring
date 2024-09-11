@@ -29,6 +29,7 @@ public class AlgorithmController {
 
 	@PostMapping("/set-algorithm-forum")
 	public String setAlgorithmForum(@RequestBody AlgorithmForumSetDto algorithmForumSetDto) {
+		log.info("algorithmForumSetDto: {}", algorithmForumSetDto.toString());
 		algorithmService.setAlgorithmForum(algorithmForumSetDto);
 		return "It has been set up successfully.";
 	}
