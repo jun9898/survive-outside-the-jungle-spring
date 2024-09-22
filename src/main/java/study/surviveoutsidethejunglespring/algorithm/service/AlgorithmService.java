@@ -67,7 +67,6 @@ public class AlgorithmService {
 			.forEach(algorithmRepository::save);
 	}
 
-	@Transactional
 	public List<AlgorithmTypeDto> getWeeklyAlgorithms(Long guildInfoId) {
 		Guild guild = guildRepository.findByGuildInfoId(guildInfoId)
 			.orElseThrow(() -> new IllegalArgumentException("Invalid guild ID"));
@@ -77,7 +76,7 @@ public class AlgorithmService {
 
 		// 현재 주의 알고리즘 데이터를 한 번의 쿼리로 가져옴
 		List<Algorithm> algorithms = algorithmRepository.findByRegistrationAtBetweenAndGuild(
-			monday.atStartOfDay(), sunday.atStartOfDay().plusDays(1), guild);
+			monday.atStartOfDay(), sunday.atStartOfDay(), guild);
 
 		// 가져온 데이터를 DTO로 변환
 		return algorithms.stream()
